@@ -6,15 +6,15 @@ const counterReducer = (state = initialState, action) => {
     if(action.type === 'INCREMENT') {
         return{
             counter: state.counter++,
-            showCounter: state.showCounter,
+            showCounter: state.showCounter
         }
     } else if (action.type === 'DECREMENT') {
         return{
-            counter: state.counter - 1
+            counter: state.counter--
         }
     } else if (action.type === 'INCREASE'){
         return {
-            counter: state.counter--,
+            counter: state.counter + action.amount,
             showCounter: state.showCounter,
         }
     } else if (action.type === 'TOGGLE' ) {
