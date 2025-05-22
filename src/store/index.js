@@ -5,7 +5,7 @@ const initialState = { counter : 0 , showCounter: true }
 const counterReducer = (state = initialState, action) => {
     if(action.type === 'INCREMENT') {
         return{
-            counter: state.counter + 1,
+            counter: state.counter++,
             showCounter: state.showCounter,
         }
     } else if (action.type === 'DECREMENT') {
@@ -14,7 +14,7 @@ const counterReducer = (state = initialState, action) => {
         }
     } else if (action.type === 'INCREASE'){
         return {
-            counter: state.counter + action.amount,
+            counter: state.counter--,
             showCounter: state.showCounter,
         }
     } else if (action.type === 'TOGGLE' ) {
@@ -22,9 +22,8 @@ const counterReducer = (state = initialState, action) => {
             counter: state.counter,
             showCounter: !state.showCounter,
         }
-    } else {
-        return state;
     }
+    return state;
 }
 
 const store = createStore(counterReducer)
